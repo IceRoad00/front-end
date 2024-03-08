@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>HTML 폼 요소2</title>
+
+</head>
+<body>
+    <!-- <form> : 사용자로부터 입력받은 데이터를 처리하는 요소-->
+    <!--! action 속성 : 해당 양식을 처리할 url을 지정 -->
+    <!-- <form action="https://naver.com"> --> <!-- 아래의 데이터와 같이 넘어감 -->
+
+    <!--! method 속성 : 해당 양식을 처리할 방법을 지정 (http 처리에 대한 method 지정), GET / POST -->
+    <!-- 
+        ? GET : 데이터를 전송할 때 URL에 붙여서 전송하는 방법(form을 쿼리문자열로 전송)
+        - http://localhost:5500/html/form_element.html?키1=값1&키2=값2
+        - URL 뒤에 "?" 통해서 쿼리문자열의 시작을 알리고 key=value 형태로 데이터를 전송, 
+        만약에 2개 이상이라면 각 key=value 사이를 "&"로 구분
+        - 전송 데이터가 URL에 표시되기 때문에 보안상 문제가 발생할 수 있음
+        - 전송할 데이터의 길이가 제한되어 있음 (최대 255자)
+        - 서버로부터 데이터를 받기 위한 용도로 사용되는 메서드
+        - 응답 속도가 상대적으로 빠름
+
+        ? POST : request body에 데이터를 담아서 전송하는 방법
+        - 전송 데이터가 숨겨져서 전송되기 때문에 GET에 비해서 보안상 안전
+        - 전송할 데이터의 길이 제한이 없음
+        - 서버에 데이터를 작성하기 위한 용도로 사용되는 메서드
+        - 응답 속도가 상대적으로 느림
+    -->
+    <form action="./form_element.html" method="get"> <!-- 홈페이지를 받아오기 위해서는 'GET'요청을 해야함-->
+
+        <!-- input의 name 속성 : form에서 작업을 처리할 때 해당값의 이름을 지정하는 속성 -->
+        이름 : <input type="text" name="name" value="홍길동" readonly/><br/>
+        비밀번호 : <input type="password" name="password" />
+        <button>전송</button>
+    </form>
+    
+</body>
+</html>

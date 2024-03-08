@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 폼 요소</title>
+</head>
+<body>
+    <!-- '폼 요소'는 사용자로부터 입력을 받기 위해 사용되는 요소 
+    <from> 요소로 입력에 대한 양식을 지정함 
+    <form> 요소는 입력에 대한 양식으로 <input>, <textarea>, <select>, 
+    <checkbox>, <radio>, <button> 등의 입력 양식 요소를 포함할 수 있음 -->
+    
+    <!-- <input> : 사용자로부터 입력 받는 입력을 받는 기본적인 요소로 
+    대부분 문자형태를 받을 때 사용 -->
+    <input />
+    <!-- type 속성 : 데이터를 입력 -->
+    <!-- text : 문자열을 그대로 입력-->
+    <input type ='text' /><br/><br/>
+    <!-- password : 입력받은 문자열을 가려줌 -->
+    <input type="password" /><br/><br/>
+    <!-- date : 날짜를 입력받는 UI 생성 (firefox 브라우저에서는 사용 불가)-->
+    <input type="date" /><br/><br/>
+    <!-- time : 시간을 입력받는 UI 생성 (firefox 브라우저에서는 사용 불가)-->
+    <input type="time" /><br/><br/>
+    <!-- datetime-local : 날짜 및 시간을 입력받는 UI 생성 (firefox 브라우저에서는 사용 불가)-->
+    <input type="datetime-local" /><br/><br/>
+
+    <!-- file : 파일을 입력받을 수 있음 -->
+    <input type="file" /><br/><br/>
+
+    <!-- range : 범위를 지정할 수 있음 -->
+    <!-- min, max, step : 최소값, 최대값, 차이 -->
+    <input type="range" min="1" max="10" step="5"/><br/><br/>
+
+    <!-- number : 숫자만 입력 받을 수 있음 -->
+    <!-- min, max, step : 최소값, 최대값, 차이 -->
+    <input type="number" min="-5" max="5" step="2" /><br/><br/>
+    
+    <!-- radio : 주어진 리스트 중에 하나를 선택할 수 있도록 함 -->
+    <!-- name 속성으로 radio 버튼을 그룹화할 수 있음 -->
+    <input type="radio" name="a"/>
+    <input type="radio" name="a"/>
+    <input type="radio" name="b"/>
+    <input type="radio" name="b"/><br/><br/>
+
+    <!-- checkbox : 주어진 리스트 중에 복수를 선택할 수 있도록 함-->
+    <!-- name : 하나의 값으로 인식 -->
+    <input type="checkbox" name="c"/>
+    <input type="checkbox" name="c"/>
+    <input type="checkbox" name="d"/>
+    <input type="checkbox" name="d"/><br/><br/>
+
+    <!-- hidden : 화면에 출력을 하지 않음 -->
+    <input type="hidden" /><br/><br/>
+
+    <!-- placeholder 속성: 입력창에 설명을 포함 -->
+    <input type="text" placeholder="placeholder" /><br/><br/>
+
+    <!-- value 속성 : 입력창에 기본값을 지정할 수 있음 -->
+    <input type="text" value="value" />
+    <!-- checkbox, radio, hidden 타입은 사용자가 input의 value를 변경할 수 없음 -->
+    <input type="checkbox" value="체크박스1" /> checkbox1
+    <input type="checkbox" value="체크박스2" /> checkbox2<br/><br/>
+
+    <!-- checked 속성 : checkbox, radio 타입에 대해서 초기 선택 여부를 지정 -->
+    <input type="checkbox" value="체크박스1" checked /> checkbox1
+    <input type="checkbox" value="체크박스2" /> checkbox2<br/><br/>
+
+    <!-- readonly 속성 : 읽기전용의 입력창으로 지정 -->
+    <input type="text" value="읽기전용" readonly />
+
+    <!-- disabled 속성 : 사용하지 않는 입력창으로 지정-->
+    <input type="text" value="사용 불가" disabled /><br/><br/><br/><br/>
+
+    <!------------------------------------------------------------------------>
+    <!-- <select> : 주어진 리스트에서 특정요소를 선택할 때 사용하는 요소 -->
+    <!-- multiple 속성으로 다중 선택이 가능한 select 요소 생성 가능 -->
+    <select multiple>
+        <!-- <option> : 선택할 수 있는 리스트의 항목을 만드는 요소 -->
+        <!-- <option>의 컨텐츠는 실제 값이 아님, 실제 값은 value 속성으로 미리 지정 -->
+        <option selected>과일</option>
+        <option value="apple">사과</option>
+        <option value="banana">바나나</option>
+        <option value="grapes">포도</option><br/><br/>
+    </select>
+
+    <br/><br/><br/><br/>
+
+    <!------------------------------------------------------------------------>
+    <!-- <textarea> : 단순히 문자를 여러 줄에 걸쳐서 작성할 수 있도록 하는 요소 -->
+    <!-- rows, cols : textarea 요소의 기본 크기를 지정 -->
+    <!-- <textarea>는 value를 사용하지 않고 시작 태그와 종료 태그 사이에 값을 지정 -->
+    <textarea rows="2" cols="20">텍스트에어리아</textarea>
+
+    <br/><br/><br/><br/>
+
+    <!------------------------------------------------------------------------>
+    <!-- <button> : 사용자로부터 클릭 이벤트를 받을 수 있는 버튼 요소-->
+    <button onclick="alert('버튼클릭!')">버튼</button>
+</body>
+</html>

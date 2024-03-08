@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {text-align: center;}
+        td {padding:0px 20px;}
+        .a{color:grey}
+        .bt{color:white;background: purple;padding:10px 20px; border-radius:10px;}
+        .bt:hover{color:black; background:white; font-size:xx-small;}
+    </style>
+</head>
+<body>
+    <table border="1" width="100%">
+        <tr>
+            <td>성명(한글)*<br>
+                <span class="a">(Name(Korean))</td>
+            <td style="text-align:left;"><input type="text" ></td>
+            <td>성명(영문)<br>
+                <span class="a">(Name(English))</td>
+            <td style="text-align:left;"><input type="text" ></td>
+        </tr>
+        <tr>
+            <td>생년월일*<br>
+                <span class="a">(Date of Birth)</td>
+            <td style="text-align:left;"><input type="text" ><br>
+                <span class="bt:hover"> 8자리 (예 : 19801211)
+            </td>
+            
+            <td>성별*<br>
+                <span class="a">(Gender)</td>
+            <td style="text-align:left;">
+                <select name = "Gender" calss = "a">
+                    <option selected>선택</option>
+                    <option>남자</option>
+                    <option>여자</option>
+                </select>
+            </td>
+            <tr>
+                <td>아이디*<br>
+                    <span class="a">(ID)</td>
+                <td style="text-align:left;" rowspan="2"><input type="text"><input type="button" class="bt" value="확인"></td>
+
+            </tr>
+        </tr>
+
+        
+
+    </table>
+
+</body>
+
+</html>
