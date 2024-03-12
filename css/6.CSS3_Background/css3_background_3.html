@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 백그라운드 3</title>
+
+    <style>
+
+        * {
+            margin: 0px;
+        }
+
+        /* https://img.khan.co.kr/news/2023/04/26/news-p.v1.20230426.51aacdb51c6c4dfb8fb119cc062887fd_P1.jpg */
+
+        /*
+            background-position 속성 : 
+                - 배경 이미지가 표시될 좌표를 지정
+        */
+        .background-position {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://img.khan.co.kr/news/2023/04/26/news-p.v1.20230426.51aacdb51c6c4dfb8fb119cc062887fd_P1.jpg');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+        }
+
+
+
+        
+        /*
+            background-color 속성 : 
+                - 요소의 배경 색상을 지정
+        */
+        .background-color {
+            width: 300px;
+            height: 400px;
+            background-color: rgba(0,255,0,0.2);
+        }
+
+
+        
+
+    </style>
+
+</head>
+<body>
+
+    <div class="background-position"></div>
+
+    <hr />
+
+    <div class="background-color"></div>
+    
+</body>
+</html>

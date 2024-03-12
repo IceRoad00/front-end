@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 백그라운드 2</title>
+
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        /*
+            https://i.ytimg.com/vi/aTkgAYnKM_w/maxresdefault.jpg
+        */
+
+        /*
+            background-attachment 속성 : 
+                - 화면을 스크롤하더라도 배경 이미지가 고정되어 있게 하는 속성
+        */
+        .background-wrapper {
+            height: 110vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .background-attachment{
+            background-image: url('https://i.ytimg.com/vi/aTkgAYnKM_w/maxresdefault.jpg');
+            background-attachment: fixed;
+        }
+
+        
+
+    </style>
+
+</head>
+<body>
+    <div class="background-wrapper background-attachment"></div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</body>
+</html>
