@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        반응형 웹 디자인 : 
+            - 화면의 해상도에 따라서 가로폭이나 배치를 변경하여 가독성을 높이는 방법
+            - 하나의 웹 사이트에서 다양한 화면 해상도에 동일한 웹 서비스를 제공하는 것
+    
+        viewport meta tag : 
+            - width: viewport의 너비
+            - height : viewport의 너비
+            - initial-scale : viewport의 초기 비율
+            - user-scale : 사용자의 확대 축소
+            - maximum-scale : viewport의 최대 배율
+            - minimum-scale : viewport의 최소 배율
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 반응형 웹 디자인</title>
+
+    <style>
+
+        /*
+            @media : 
+                - 서로 다른 미디어 타입이나 조건에 따라서 각각 서로 다른 스타일을 지정
+                - 반응형 웹 디자인의 핵심 기술
+                - 미디어 별로 각기 다른 스타일을 지정하는 것을 Media Query라 함
+        */
+        body {
+            background-color: rgba(0,0,255,0.6);
+        }
+        
+        @media screen and (max-width:1200px) {
+            body {
+                background-color: rgba(0,0,0,0.6);
+                color: rgba(255,255,255,1);
+            }
+        }
+
+        @media screen and (max-width:800px) {
+            body {
+                background-color: rgba(0,255,0,0.6);
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h1>
+</body>
+</html>

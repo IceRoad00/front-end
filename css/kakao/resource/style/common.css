@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'kakaoRegular';
+    src: url('../font/KakaoRegular.ttf');
+}
+
+@font-face {
+    font-family: 'KakaoBold';
+    src: url('../font/KakaoBold.ttf');
+}
+
+* {
+    font-family: 'kakaoRegular', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-width: 1712px;
+}
+
+#wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 1712px;
+}
+
+.title-box {
+    font-size: 52px;
+    line-height: 78px;
+    letter-spacing: -1px;
+    font-family: 'kakaoRegular', sans-serif;
+    font-weight: 400;
+}
+
+.title-box::before {
+    background-image: url('https://www.kakaocorp.com/page/ico_tit_service.gif');
+    width: 78px;
+    height: 78px;
+    display: inline-block;
+    content: '';
+    background-size: 100%;
+    vertical-align: top;
+}
+
+/* Contents Box */
+.contents-box {
+    display: grid;
+    grid-template:
+        "comunication business" 180px
+        "life-style shopping" 180px
+        "enteratainmnet social" 180px
+        / 1fr 1fr;
+    gap: 16px;
+}
+
+.content-card {
+    background-color: rgba(240,240,240,1);
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 50px;
+    padding: 0px 64px;
+}
+
+.content-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.content-icons-box {
+    display: flex;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background-size: 100%;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+}
+
+.more {
+    background-color: rgba(0,0,0,.4);
+    color: rgba(255,255,255,1);
+    text-align: center;
+    line-height: 56px;
+    font-size: 36px;
+}
+
+.more:hover {
+    background-color: rgba(0,0,0,1);
+}
+
+.kakaotalk {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9424536018c00001.png');
+}
+.daum {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c9425290018c00001.png');
+}
+.story {
+    background-image: url('https://t1.kakaocdn.net/kakaocorp/kakaocorp/admin/kakaoService/c942653a018c00001.png');
+}
+
+/* More Box */
+.more-box {
+    display: flex;
+    justify-content: center;
+}
+
+.more-button {
+    width: 316px;
+    height: 76px;
+    background-color: rgba(240,240,240,1);
+    font-size: 24px;
+    letter-spacing: -0.4;
+    border-radius: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.more-button:hover {
+    cursor: pointer;
+}
+
+.round-black {
+    background-color: rgba(0,0,0,1);
+    color: rgba(255,255,255,1);
+    width: 24px;
+    height: 24px;
+    display: block;
+    text-align: center;
+    line-height: 24px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.more-button:hover .round-black {
+    background-color: rgba(0,0,0,0.5);
+}
