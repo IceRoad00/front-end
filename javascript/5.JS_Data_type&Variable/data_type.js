@@ -88,7 +88,7 @@ var obj = {};
     - null 값은 typeof 타입확인 연산자로 확인하면 object 타입이 반환됨 (단순 javascript 자체의 문제)
 */
 obj = null;
-var element = document.getElementById('.class');
-console.log(element)
+// var element = document.getElementById('.class');
+// console.log(element)
 
 
