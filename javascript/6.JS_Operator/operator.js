@@ -157,5 +157,6 @@ x = 10, y = 20, z = 30;
     typeof 연산자 : 우항의 데이터 및 변수의 타입을 문자열로 반환
 */
 let type = typeof x;
-console.log(type)
+console.log(type);
+console.log(typeof type);
 

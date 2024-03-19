@@ -65,21 +65,23 @@ console.log('==============================');
 
 /*
     불리언 타입으로 형변환
-    - 
-    - 
+    - Boolean 클래스의 생성자를 new 연산자 없이 사용
+    - !! 사용 가능
 */
-
+console.log(Boolean('문자열'));
+// console.log(!'문자열');
+console.log(!!'문자열');
 
 
 console.log('==============================');
 
 /*
     단축 평가 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 논리 연산자는 논리 결과를 결정한 피연산자의 결과를 그대로 반환
+    - true && data => data
+    - false && data => false
+    - true || data => true
+    - false || data => data
 */
-
+console.log('홍길동' || false);
 
