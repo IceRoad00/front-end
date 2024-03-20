@@ -13,7 +13,22 @@
     <h1>결과 <span id="result"></span></h1>
 
     <script>
-        
+        const plusButton = document.getElementById('plus-button');
+        plusButton.addEventListener('click', function() {
+            const a = document.getElementById('a');
+            const b = document.getElementById('b');
+            document.getElementById('result').innerText = Number(a.value) + Number(b.value); 
+        });
+    </script>
+    <script>
+        const miunsButtonClickEventHandler = function() {
+            const a = document.getElementById('a');
+            const b = document.getElementById('b');
+            document.getElementById('result').innerText = Number(a.value) - Number(b.value);
+        };
+
+        const miunsButton = document.getElementById('minus-button');
+        miunsButton.addEventListener('click', miunsButtonClickEventHandler);
     </script>
 
 </body>
