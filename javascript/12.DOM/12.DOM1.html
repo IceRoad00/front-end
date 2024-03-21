@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체 모델 - 요소 접근 및 탐색</title>
+</head>
+
+<body>
+
+    <input type="date" />
+    <div class="sign-in-box">
+        <h1 class="title">로그인</h1>
+        <form id="sign-in-form">
+            <input id="user-id" name="user-id" class="custom-input" type="text" />
+            <input id="user-pw" name="user-pw" class="custom-input" type="password" />
+            <button class="custom-button" type="submit">로그인</button>
+        </form>
+    </div>
+
+
+    <script>
+        /*
+            하나의 요소 노드 선택(DOM Query)
+        */
+
+        /*
+            document.getElementById(id) : 
+            - id 속성 값으로 요소를 하나 선택
+            - 만약 동일한 id가 존재한다면 최상위에 있는 요소만 선택
+            - HTMLElement를 상속 받은 객체를 반환
+            - 모든 브라우저에서 사용 가능
+        */
+        const userIdInputElement = document.getElementById('user-id');
+        const userPwInputElement = document.getElementById('user-pw');
+        console.log(userIdInputElement);
+        console.log(userPwInputElement);
+
+
+        console.log('==============================');
+
+        /*
+            document.querySelector(cssSelector) : 
+            - CSS 선택자를 사용하여 요소를 하나 선택
+            - 여러 개가 선택된다면 최상위 하나의 요소만 선택
+            - HTMLElement를 상속받은 객체를 반환
+            - IE8 이상에서만 사용 가능
+         */
+        const signInTitleElement = document.querySelector('body > div > h1');
+        console.log(signInTitleElement);
+        
+
+        console.log('==============================');
+
+        /*
+            여러 개의 요소 노드 선택(DOM Query)
+        */
+
+        /*
+            document.getElementsByClassName(class)
+            - class 속성 값으로 요소를 모두 선택
+            - 공백으로 구분하여 여러 개의 class를 지정해서 선택할 수 있음
+            - HTMLCollection을 반환
+            - IE9 이상의 브라우저에서 동작
+        */
+        const customInputElements = document.getElementsByClassName('custom-input');
+
+        for(const element of customInputElements) {
+            console.log(element);
+        }
+        
+
+        console.log('==============================');
+
+        /*
+            document.getElementsByTagName(tagName)
+            - 태그명으로 요소를 모두 선택
+            - HTMLCollection을 반환
+            - 모든 브라우저에서 동작
+        */
+        const inputElements = document.getElementsByTagName('input');
+        for(const element of inputElements) {
+            console.log(element);
+        }
+        
+
+        console.log('==============================');
+
+        /*
+            document.querySelectorAll(selector)
+            - 지정된 선택자를 사용하여 요소를 모두 선택
+            - NodeList를 반환
+            - IE8 이상에서 동작
+        */
+        const formInputElements = document.querySelectorAll('form > input');
+        for(const element of formInputElements) {
+            console.log(element);
+        }
+        
+
+        console.log('==============================');
+
+        /*
+            요소 탐색 (DOM Traversing)
+        */
+
+        /*
+            parentNode
+            - 부모 요소를 탐색
+            - HTMLElement를 상속받은 객체
+            - 모든 브라우저에서 동작
+        */
+        console.log(userIdInputElement.parentElement);
+        
+
+        console.log('==============================');
+
+        /*
+            firstElementChild, lastElementChild
+            - 자식 요소 선택
+            - HTMLElement를 상속받은 객체를 반환
+            - IE9 이상에서 동작
+        */
+        const signInFormElement = document.getElementById('sign-in-form');
+        console.log(signInFormElement.firstElementChild);
+        console.log(signInFormElement.lastElementChild);
+
+
+        console.log('==============================');
+
+    </script>
+
+</body>
+
+</html>

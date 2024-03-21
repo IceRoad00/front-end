@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 객체 모델 - 조작</title>
+
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .sign-in-box {
+            width: 500px;
+            margin: 0px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .custom-input {
+            background: none;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            outline: none;
+            padding: 8px;
+            width: 250px;
+            margin: 8px 0px;
+            font-size: 20px;
+        }
+
+        .normal-message {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .error-message {
+            font-size: 14px;
+            color: rgba(255, 0, 0, 0.5);
+        }
+
+        #button-box {
+            margin: 8px 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .custom-button {
+            width: 250px;
+            padding: 8px;
+            margin: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sign-in-box">
+        <h1 class="title">로그인</h1>
+        <form id="sign-in-form">
+            <div class="input-box">
+                <input id="user-id" name="user-id" class="custom-input" type="text" />
+                <div id="user-id-message" class="normal-message">아이디를 입력하세요.</div>
+            </div>
+            <div class="input-box">
+                <input id="user-pw" name="user-pw" class="custom-input" type="password" />
+                <div id="user-p-message" class="normal-message">비밀번호를 입력하세요.</div>
+            </div>
+            <div id="button-box">
+                <button class="custom-button" type="submit">로그인</button>
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <script>
+        /*
+            요소 속성에 접근 및 수정
+        */
+
+        /*
+            id
+            - id 속성의 값을 반환 또는 변경
+            - 모든 브라우저에서 사용
+        */
+        const userPwMessageElement = document.getElementById('user-p-message');
+        console.log(userPwMessageElement.id);
+        userPwMessageElement.id = 'user-pw-message';
+        console.log(userPwMessageElement.id);
+
+
+        console.log('==============================');
+
+        /*
+            className
+            - class 속성의 값을 반환 또는 변경
+            - 모든 브라우저에서 사용
+        */
+        const userIdMessageElement = document.getElementById('user-id-message');
+        console.log(userIdMessageElement.className);
+        userIdMessageElement.className = 'error-message';
+        console.log(userIdMessageElement.className);
+
+
+        console.log('==============================');
+        
+
+        /*
+            hasAttribute(attribute)
+            - 매개변수로 전달한 속성을 가지고 있는지 확인
+            - boolean 값 반환
+            - IE8 이상 동작
+
+            getAttribute(attribute)
+            - 속성 값을 반환
+            - string 값 반환
+            - 모든 브라우저에서 사용
+
+            setAttribute(attribute, value)
+            - 속성과 속성값을 지정
+            - undefined 반환
+            - 모든 브라우저에서 사용
+
+            removeAttribute(attribute)
+            - 지정한 속성을 제거
+            - undefined 반환
+            - 모든 브라우저에서 사용
+        */
+        const userPwInputElement = document.getElementById('user-pw');
+        console.log(userPwInputElement.hasAttribute('type'));
+        console.log(userPwInputElement.getAttribute('type'));
+        userPwInputElement.setAttribute('type','text');
+        // 만약 속성을 제거하면 속성의 기본값으로 지정됨
+        userPwInputElement.removeAttribute('type');
+
+
+        console.log('==============================');
+        
+        /*
+            HTML 콘텐츠 조작
+        */
+
+        /*
+            textContent
+            - 요소에 텍스트 컨텐츠를 반환 또는 변경
+            - 마크업은 무시됨
+            - 요소에 새로운 텍스트를 지정할 때 사용
+            - 마크업 태그를 포함한 문자열이 들어가면 마크업을 순수 문자열로 인식
+            - IE9 이상 동작
+        */
+        userIdMessageElement.textContent = '잘못된 아이디입니다.';
+
+
+        console.log('==============================');
+
+        /*
+            innerHTML
+            - 요소에 HTML을 반환 또는 변경e
+            - XSS(Cross Site Script) 보안 취약점에 노출됨
+        */
+        const signInFormElement = document.getElementById('sign-in-form');
+        console.log(signInFormElement.innerHTML);
+        
+        // const clientInput = prompt('입력하세요.');
+        // signInFormElement.innerHTML = `<h1>${clientInput}</h1>`;
+
+
+        console.log('==============================');
+        
+        /*
+            createElement(tagName)
+            - 매개변수로 전달한 태그에 해당하는 요소를 생성
+            - HTMLElement 객체 반환
+            - 모든 브라우저에서 사용
+
+            createTextNode(text)
+            - 매개변수로 전달한 텍스트를 요소의 텍스트 값으로 지정
+            - Text 객체 반환
+            - 모든 브라우저에서 사용
+
+            appendChild(Node)
+            - 매개변수로 전달한 요소를 마지막 자식 요소로 추가
+            - 추가한 요소 HTMLElement 반환
+            - 모든 브라우저에서 사용
+
+            removeChild(Node)
+            - 매개변수로 전달한 요소를 자식 요소에서 제거
+            - undefined 반환
+            - 모든 브라우저에서 사용
+        */
+        const signUpButtonElement = document.createElement('button');
+        const signUpButtonText = document.createTextNode('회원가입');
+        signUpButtonElement.appendChild(signUpButtonText);
+        signUpButtonElement.className = 'custom-button';
+
+        const buttonBoxElement = document.getElementById('button-box');
+        buttonBoxElement.appendChild(signUpButtonElement);
+
+
+        console.log('==============================');
+        
+        /*
+            insertAdjacentHTML(position, string)
+            - 첫 번째 매개변수로 전달한 position 위치에 두 번째 매개변수 html을 삽입
+            - 첫 번째 매개변수 position('beforebegin', 'afterbegin', 'beforeend', 'afterend')
+            - 두 번째 매개변수 html 문자열
+            - 모든 브라우저에서 사용
+        */
+        buttonBoxElement.insertAdjacentHTML('beforebegin','<button class="custom-button">2</button>');
+
+
+        console.log('==============================');
+        
+        /*
+            style : inline 스타일 선언 가능 
+        */
+        buttonBoxElement.style.backgroundColor = 'rgba(0,255,0,0.5)';
+
+
+
+    </script>
+
+</body>
+
+</html>
