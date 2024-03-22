@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Fetch</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+            JSON: Javascript Object Notation 
+            - 클라이언트와 서버 간 데이터 교환을 위한 문자열 포맷
+            - xml 포맷보다 가볍고 사용성이 좋음
+            - javascript의 객체 리터럴과 비슷하게 생겼지만, JSON은 순수 텍스트
+        */
+
+
+        /*
+            JSON.stringify : javascript 객체를 JSON 형식의 문자열로 변환
+        */
+        const object = {
+            name : '이방원',
+            age : 52
+        };
+        console.log(typeof object, object);
+
+        const jsonObject = JSON.stringify(object);
+        console.log(typeof jsonObject, jsonObject);
+
+        console.log('==============================');
+
+        /*
+            JSON.parse() : JSON 포맷의 문자열 데이터를 javascript 객체로 변경
+        */
+        const stringJson = '{"name": "이도", "age": 57}';
+        console.log(typeof stringJson, stringJson);
+        
+        const object2 = JSON.parse(stringJson);
+        console.log(typeof object2, object2);
+
+        console.log('==============================');
+
+        /*
+            Fetch API
+            - HTTP 요청과 응답을 javascript에서 접근하고 조작할 수 있는 인터페이스
+            - 비동기 함수
+            - fetch(url, options)
+            - fetch(url, options).then(callback).catch(callback)
+        */
+
+        /*
+            Request
+        */
+
+        // fetch 함수는 기본적으로 GET 요청
+        fetch('http://localhost:5500');
+        
+        // 특정 메서드로 요청을 보내거나 요청에 대한 옵션을 변경하려면 두 번째 options 메서드로 옵션 객체를 전달
+        fetch('http://localhost:5500', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: stringJson
+        });
+
+        // QueryString 으로 데이터를 전송하는 방법
+        const queryString = new URLSearchParams(object2).toString();
+        fetch('http://localhost:5500/?' + queryString);
+        
+        // URL Pattern 으로 데이터를 전송하는 방법
+        const name = 'gildong'
+        fetch(`http://localhost:5500/${name}`);
+
+        // 비동기 함수는 반환 데이터가 Promise 객체를 반환
+        // Promise 객체는 결과가 정상적으로 반환이 될 때까지 사용 X
+        const response = fetch('http://localhost:5500');
+        console.log(response);
+
+        // 비동기함수.then(callback)을 사용하여 결과 사용
+        fetch('http://localhost:5500').then(function(response) {
+            console.log(response);
+        });
+
+        // 동기 함수로 지정하여 결과를 기다렸다가 사용
+        async function getLocalhost() {
+            console.log('함수 시작');
+            const response = await fetch('http://localhost:5500');
+            console.log(response);
+            console.log('함수 종료');
+        }
+
+        getLocalhost();
+
+        // CORS : Cross-Origin Resource Sharing
+        // 웹 브라우저에서 실행되는 javascript가 다른 출처에 리소스를 접근하려 하는 것을 제어하는 방식
+        // 출처는 프로토콜, 호스트 주소, 포트를 의미
+        fetch('https://www.naver.com', {
+            mode: 'no-cors'
+        });
+
+        console.log('==============================');
+
+    </script>
+
+</body>
+
+</html>
