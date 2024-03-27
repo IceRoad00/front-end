@@ -159,7 +159,7 @@
 .input-primary-button {
     box-sizing: border-box;
     width: 110px;
-    padding: 8px 24px;
+    padding: 8px 0px;
     border-radius: 6px;
 
     background-color: rgba(58,87,232,0.2);
@@ -181,7 +181,7 @@
 .input-disable-button {
     box-sizing: border-box;
     width: 110px;
-    padding: 8px 0px;
+    padding: 8px 16px;
     border-radius: 6px;
 
     background-color: rgba(238,238,238,1);

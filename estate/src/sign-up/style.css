@@ -66,3 +66,7 @@
 
     width: 100%;
 }
+
+.disable-button:hover {
+    cursor: pointer;
+}

@@ -17,8 +17,8 @@
                     <div class="sign-up-sns-container">
                         <div class="sns-container-title label">SNS 회원가입</div>
                         <div class="sns-button-container">
-                            <div class="sns-button kakao-button"></div>
-                            <div class="sns-button naver-button"></div>
+                            <div id="sign-up-kakao" class="sns-button kakao-button"></div>
+                            <div id="sign-up-naver" class="sns-button naver-button"></div>
                         </div>
                     </div>
                     <div class="short-divider"></div>
@@ -29,9 +29,9 @@
                             <div class="input-label label">아이디</div>
                             <div class="input-content-box">
                                 <input id="id" class="input" type="text" placeholder="아이디를 입력해주세요." />
-                                <div class="input-disable-button">중복 확인</div>
+                                <div id="check-duplication-button" class="input-disable-button">중복 확인</div>
                             </div>
-                            <div class="input-message"></div>
+                            <div id="id-message" class="input-message"></div>
                         </div>
 
                         <div class="input-box">
@@ -39,40 +39,40 @@
                             <div class="input-content-box">
                                 <input id="password" class="input" type="password" placeholder="비밀번호를 입력해주세요." />
                             </div>
-                            <div class="input-message"></div>
+                            <div id="password-message" class="input-message"></div>
                         </div>
 
                         <div class="input-box">
                             <div class="input-label label">비밀번호 확인</div>
                             <div class="input-content-box">
-                                <input id="password" class="input" type="password" placeholder="비밀번호를 입력해주세요." />
+                                <input id="password-check" class="input" type="password" placeholder="비밀번호를 입력해주세요." />
                             </div>
-                            <div class="input-message"></div>
+                            <div id="password-check-message" class="input-message"></div>
                         </div>
 
                         <div class="input-box">
                             <div class="input-label label">이메일</div>
                             <div class="input-content-box">
                                 <input id="email" class="input" type="email" placeholder="이메일 주소를 입력해주세요." />
-                                <div class="input-disable-button">이메일 인증</div>
+                                <div id="check-email-button" class="input-disable-button">이메일 인증</div>
                             </div>
-                            <div class="input-message"></div>
+                            <div id="email-message" class="input-message"></div>
                         </div>
 
                         <div class="input-box">
                             <div class="input-label label">인증번호</div>
                             <div class="input-content-box">
                                 <input id="auth-number" class="input" type="number" placeholder="인증번호 4자리를 입력해주세요." />
-                                <div class="input-disable-button">인증 확인</div>
+                                <div id="check-auth-number-button" class="input-disable-button">인증 확인</div>
                             </div>
-                            <div class="input-message"></div>
+                            <div id="auth-number-message" class="input-message"></div>
                         </div>
 
 
                     </div>
                     <div class="sign-up-button-container">
-                        <div class="disable-button full-width">회원가입</div>
-                        <div class="text-link">로그인</div>
+                        <div id="sign-up-button" class="disable-button full-width">회원가입</div>
+                        <div id="sign-in-link" class="text-link">로그인</div>
                     </div>
                 </div>
             </div>
@@ -80,5 +80,6 @@
     </div>
     
     <script src="./script.js"></script>
+    <script src="../common.js"></script>
 </body>
 </html>
