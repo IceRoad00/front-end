@@ -15,7 +15,8 @@ const EMAIL = 'email@email.com';
 const AUTH_NUMBER = '1010';
 
 let id = '', password = '', passwordCheck = '', email = '', authNumber = '';
-let isDuplicate = true, isEmail = false, isDuplicateEmail = true, isEqualAuthNumber = false;
+let isDuplicate = true, isPasswordPattern = false, isEqualPassword = false, 
+    isEmail = false, isDuplicateEmail = true, isEqualAuthNumber = false;
 
 const idInputElement = document.getElementById('id');
 const passwordInputElement = document.getElementById('password');
@@ -28,10 +29,12 @@ const checkEmailButtonElement = document.getElementById("check-email-button");
 const checkAuthNumberButtonElement = document.getElementById("check-auth-number-button");
 
 const idMessageElement = document.getElementById('id-message');
+const passwordMessageElement = document.getElementById('password-message');
+const passwordCheckMessageElement = document.getElementById('password-check-message');
 const emailMessageElement = document.getElementById('email-message');
-const authNumberMessageElement = document.getElementById('auth-number-message')
+const authNumberMessageElement = document.getElementById('auth-number-message');
 
-const signUpButtonElement = document.getElementById('sign-up-button')
+const signUpButtonElement = document.getElementById('sign-up-button');
 const signInlinkElement = document.getElementById('sign-in-link');
 
 
@@ -43,12 +46,43 @@ function onIdInputHandler(event) {
     else checkduplicateButtonElement.className = 'input-disable-button';    
 }
 
+// 비밀번호 변수에 이벤트가 발생한 실제 요소의 value 값을 할당한다.
 function onPasswordInputHandler(event) {
     password = event.target.value;
+
+    // 비밀번호 패턴을 정규식으로 영문자와 숫자를 반드시 포함한 상태로 8~13자로 지정한다.
+    const passwordReg = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,13}$/;
+    // 비빌번호 변수에 들어있는 값이 비밀번호 패턴과 일치하는지 확인한다.
+    isPasswordPattern = passwordReg.test(password);
+
+    // 비밀번호 패턴이 일치하지 않을 때
+    if (!isPasswordPattern) {
+        // passwordMessase 요소의 클래스명을 'input-message error'로 바꾼다.
+        passwordMessageElement.className = 'input-message error';
+        // passwordMessase 요소의 텍스트를 '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요'로 바꾼다.
+        passwordMessageElement.textContent = '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요';
+        // 변경 작업이 이뤄진 후 함수를 종료한다.
+        return;
+    }
+    // 비밀번호 패턴이 일치할 경우에만 아래 코드가 실행됨
+
+    // passwordMessase 요소의 클래스명을 'input-message'로 바꾼다.
+    passwordMessageElement.className = 'input-message';
+    // passwordMessase 요소의 텍스트를 빈문자열로 바꾼다.
+    passwordMessageElement.textContent = '';
 }
 
 function onPasswordCheckInputHandler(event) {
     passwordCheck = event.target.value;
+    
+    isEqualPassword = password === passwordCheck;
+    if(!isEqualPassword) {
+        passwordCheckMessageElement.className = 'input-message error';
+        passwordCheckMessageElement.textContent = '비밀번호가 일치하지 않습니다.';
+        return;
+    }
+    passwordCheckMessageElement.className = 'input-message primary';
+    passwordCheckMessageElement.textContent = '비밀번호가 일치합니다.';
 }
 
 function onEmailInputHandler(event) {
@@ -141,10 +175,10 @@ function onCheckAuthNumberClickHandler(event) {
     if(!authNumber) return;
 
     isEqualAuthNumber = authNumber === AUTH_NUMBER;
-
     if(!isEqualAuthNumber) {
         authNumberMessageElement.className = 'input-message error';
         authNumberMessageElement.textContent = '인증번호가 일치하지 않습니다.';
+        return;
     }
         authNumberMessageElement.className = 'input-message primary';
         authNumberMessageElement.textContent = '인증번호가 확인되었습니다.';
@@ -172,9 +206,11 @@ function onSignInlinkClickHandler(event) {
 signInlinkElement.addEventListener('click', onSignInlinkClickHandler);
 
 function setSignUpButton () {
+
     const isPrimaryButton = 
         id && password && passwordCheck && email && authNumber && !isDuplicate 
-        && isEmail && !isDuplicateEmail && isEqualAuthNumber;
+        && isPasswordPattern && isEqualPassword && isEmail 
+        && !isDuplicateEmail && isEqualAuthNumber;
 
     if(isPrimaryButton) signUpButtonElement.className = 'primary-button full-width';
     else signUpButtonElement.className = 'disable-button full-width';
