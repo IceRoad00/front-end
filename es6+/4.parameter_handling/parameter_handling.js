@@ -76,11 +76,14 @@ const kingInfo = {
     contury: '고려'
 };
 
+// 요소 추가
 newKing = {...king, ...kingInfo};
 console.log(newKing);
 
+// 요소 추가
 newKing = {...king, birth: '1335.11.04'};
 console.log(newKing);
 
+// 덮어씌움
 newKing = {...king, name: '이단', birth: '1335.11.04'};
 console.log(newKing);
