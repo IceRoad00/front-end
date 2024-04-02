@@ -4,7 +4,7 @@
 */
 export const exportVariable = 'export 변수';
 export function exportFunction() {
-    return 'exprot 함수';
+    return 'export 함수';
 }
 export class exportClass {
     field;
