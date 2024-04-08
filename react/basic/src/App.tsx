@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import Component from './component/Component';
 import Sample from './component/Sample';
-import SignInContainer1 from './component_manage/example/SignInContainer1';
 import CurlyBraces from './component/CurlyBraces';
 import Properties from './component_manage/Properties';
 import InputBox from './component/example/InputBox';
 import ConditionalRedering from './component_manage/ConditionalRedering';
 import ListRedering from './component_manage/ListRedering';
+import SignUpContainer from './component_manage/example/SignUpContainer';
+import EventComponent from './interaction/EventComponent';
+import StateComponent from './interaction/StateComponent';
 
 // JSX / TSX :
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -81,9 +83,11 @@ function App() {
       {/* <SignInContainer /> */}
       {/* <CurlyBraces /> */}
       {/* <Properties /> */}
-      <SignInContainer1 />
+      {/* <SignUpContainer /> */}
       {/* <ConditionalRedering /> */}
       {/* <ListRedering /> */}
+      {/* <EventComponent /> */}
+      <StateComponent />
     </>
   );
 }

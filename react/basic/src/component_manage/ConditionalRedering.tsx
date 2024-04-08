@@ -47,7 +47,11 @@ function ThreeTermComponent({ number }: { number: number }) {
 
     // ex) number가 양수면 '양수', 음수면 '음수', 0이면 '영'
     return(
-        <h1>{number > 0 ? '양수' : number < 0 ? '음수' : '영'}</h1>
+        <h1>
+            {number > 0 ? '양수' 
+            : number < 0 ? '음수' 
+            : '영'}
+        </h1>
     )
 }
 export default function ConditionalRedering() {
