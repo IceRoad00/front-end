@@ -9,7 +9,7 @@ import React, { ChangeEvent, useState } from 'react'
 export default function StateComponent() {
     
     // status 선언 :
-    // - useState 함수로 함수를 선언할 수 있음
+    // - useState 함수로 상태를 선언할 수 있음
     // - const [상태변수, 상태변경함수] = useState<상태변수타입>(초기값);
 
     // let count = 0;
