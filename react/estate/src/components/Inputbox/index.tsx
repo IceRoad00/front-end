@@ -10,11 +10,14 @@ export interface InputBoxProps {
     buttonTitle?: string;
     ButtonStatus?: boolean;
     onButtonClickHandler?: () => void;
+    message?: string;
+    error? : boolean;
 }
 
-export default function InputBox({label, type, value, placeholder, onChangeHandler, buttonTitle, ButtonStatus, onButtonClickHandler}: InputBoxProps) {
+export default function InputBox({label, type, value, placeholder, onChangeHandler, buttonTitle, ButtonStatus, onButtonClickHandler, message, error}: InputBoxProps) {
 
     const buttonClass = ButtonStatus ? 'input-primary-button' : 'input-disable-button';
+    const messageClass = 'input-message ' + (error ? 'error' : 'primary');
 
     return (
         <div className="input-box">
@@ -33,7 +36,9 @@ export default function InputBox({label, type, value, placeholder, onChangeHandl
                 </div> 
                 }
             </div>
-            <div className="input-message"></div>
+            <div className={messageClass}>
+                {message}
+            </div>
         </div>
     );
 }
