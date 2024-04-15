@@ -52,10 +52,12 @@ function SignIn({onLinkClickHandler}: Props) {
     //                    event handler                    //
     const onIdChangeHandler = (event:ChangeEvent<HTMLInputElement>) => {
         setId(event.target.value);
+        setMessage('');
     };
 
     const onPasswordChangeHandler = (event:ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
+        setMessage('');
     };
 
     const onSignInButtonClickHandler = () => {
@@ -67,10 +69,10 @@ function SignIn({onLinkClickHandler}: Props) {
         if(isSuccess) {
             setId('');
             setPassword('');
-            alert('');
+            alert('로그인 성공!');
         }
         else {
-            setMessage('');
+            setMessage('로그인 정보가 일치하지 않습니다.');
         }
     };
 
@@ -108,7 +110,7 @@ function SignUp({onLinkClickHandler}:Props) {
     const [authnumberButtonStatus, setAuthNumberButtonStatus] = useState<boolean>(false);
 
     const [isIdCheck, setIdCheck] = useState<boolean>(false);
-    const [ispasswordPattern, setPasswordPattern] = useState<boolean>(false);
+    const [isPasswordPattern, setPasswordPattern] = useState<boolean>(false);
     const [isEqualPassword, setEqualPassword] = useState<boolean>(false);
     const [isEmailCheck, setEmailCheck] = useState<boolean>(false);
     const [isAuthNumberCheck, setAuthNumberCheck] = useState<boolean>(false);
@@ -124,7 +126,7 @@ function SignUp({onLinkClickHandler}:Props) {
     const [isAuthNumberError, setAuthNumberError] = useState<boolean>(false);
 
     const isSignUpActive = isIdCheck && isEmailCheck && isAuthNumberCheck && 
-    ispasswordPattern && isEqualPassword;
+    isPasswordPattern && isEqualPassword;
 
     const signUpButtonClass = isSignUpActive ? 'primary-button full-width' : 'disable-button full-width';
 
@@ -143,14 +145,19 @@ function SignUp({onLinkClickHandler}:Props) {
 
         const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,13}$/;
         const isPasswordPattern = passwordPattern.test(value);
-        setPasswordPattern(ispasswordPattern);
-        const passwordMessage = isPasswordPattern ? '' : 
-        value ? '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.' : '';
+        setPasswordPattern(isPasswordPattern);
+
+        const passwordMessage = 
+            isPasswordPattern ? '' : 
+            value ? '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.' : '';
         setPasswordMessage(passwordMessage);
 
-        const isEqualPassword = password === value;
-        const passwordCheckMessage = isEqualPassword ? '' : 
-        passwordCheck ? '비밀번호가 일치하지 않습니다.' : '';
+        const isEqualPassword = passwordCheck === value;
+        setEqualPassword(isEqualPassword);
+
+        const passwordCheckMessage = 
+            isEqualPassword ? '' : 
+            passwordCheck ? '비밀번호가 일치하지 않습니다.' : '';
         setPasswordCheckMessage(passwordCheckMessage);
     };
     
@@ -160,8 +167,10 @@ function SignUp({onLinkClickHandler}:Props) {
 
         const isEqualPassword = password === value;
         setEqualPassword(isEqualPassword);
-        const passwordCheckMessage = isEqualPassword ? '' : 
-        value ? '비밀번호가 일치하지 않습니다.' : '';
+
+        const passwordCheckMessage = 
+            isEqualPassword ? '' : 
+            value ? '비밀번호가 일치하지 않습니다.' : '';
         setPasswordCheckMessage(passwordCheckMessage);
     };
     
@@ -218,7 +227,7 @@ function SignUp({onLinkClickHandler}:Props) {
     
     const onSignUpButtonClickHandler = () => {
         if(!isSignUpActive) return;
-            alert('회원가입');
+        alert('회원가입');
     };
     
     //                    render                    //
@@ -251,8 +260,7 @@ function SignUp({onLinkClickHandler}:Props) {
 
             </div>
             <div className="authentication-button-container">
-                <div className={signUpButtonClass}
-                onClick={onSignUpButtonClickHandler}>회원가입</div>
+                <div className={signUpButtonClass} onClick={onSignUpButtonClickHandler}>회원가입</div>
                 <div className="text-link" onClick={onLinkClickHandler}>로그인</div>
             </div>
         </div>
@@ -272,9 +280,10 @@ export default function Authentication() {
     }
 
     //                    constant                    //
-    const AuthenticationContents = page === 'sign-in' ? 
-    <SignIn onLinkClickHandler={onLinkClickHandler}/> : 
-    <SignUp onLinkClickHandler={onLinkClickHandler}/>;
+    const AuthenticationContents 
+    = page === 'sign-in' ? 
+        <SignIn onLinkClickHandler={onLinkClickHandler}/> : 
+        <SignUp onLinkClickHandler={onLinkClickHandler}/>;
 
     const imageBoxStyle = {backgroundImage: `url(${page === 'sign-in' ? SignInBackground : SignUpBackground
 })`}
