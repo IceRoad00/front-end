@@ -13,6 +13,7 @@ import StateComponent from './interaction/StateComponent';
 import ForwordingStateComponent from './interaction/ForwordingStateComponent';
 import HookComponent1 from './hook/HookComponent1';
 import HookComponent2 from './hook/HookComponent2';
+import CustomHook from './hook/CustomHook';
 
 // JSX / TSX :
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -93,7 +94,8 @@ function App() {
       {/* <StateComponent /> */}
       {/* <ForwordingStateComponent /> */}
       {/* <HookComponent1 /> */}
-      <HookComponent2 />
+      {/* <HookComponent2 /> */}
+      <CustomHook />
     </>
   );
 }
